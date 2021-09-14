@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter, Route, Switch , Link } from 'react-router-dom';
+import { Route, Switch , Link } from 'react-router-dom';
 import Admin from "../src/components/Admin"
 import Login from "../src/components/Login"
 import Logout from "../src/components/Logout"
@@ -9,8 +9,8 @@ function App() {
   return (
     <Switch>
       <Route exact path = "/" component ={Login}/>
-      <Route path = "/b" component ={B}/>
-      <Route path = "/c" component ={C}/>
+      <Route path = "/admin" component ={Admin}/>
+      <Route path = "/logout" component ={Logout}/>
     </Switch>
   );
 }

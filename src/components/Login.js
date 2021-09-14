@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
     constructor(props) {
-        let loggedIn = false;
         super();
+        const token = localStorage.getItem("token");
+        let loggedIn = true
+        if (token === null) {
+            loggedIn = false
+        }
         this.state = {
             username: '',
             password: '',
@@ -23,10 +28,19 @@ export default class Login extends Component {
         e.preventDefault();
         const { username, password } = this.state;
         console.log(username, password);
-        // login magic 
+        // login magic
+        if (username === "test" && password === "test") {
+            localStorage.setItem("token" , "dnsdfskjfnsnfsojfsmkofafm")
+            this.setState ({
+                loggedIn : true
+            })
+        }
 
     }
     render() {
+        if(this.state.loggedIn){
+            return <Redirect to="/admin" />
+        }
         return (
             <div>
                 <h1>login app</h1>
