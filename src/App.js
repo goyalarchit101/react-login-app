@@ -1,17 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 import { Route, Switch , Link } from 'react-router-dom';
-import Admin from "../src/components/Admin"
-import Login from "../src/components/Login"
-import Logout from "../src/components/Logout"
+import Admin from "../src/components/Admin";
+import Login from "../src/components/Login";
+import Logout from "../src/components/Logout";
+import Register from "../src/components/Register";
 
 function App() {
   return (
-    <Switch>
-      <Route exact path = "/" component ={Login}/>
-      <Route path = "/admin" component ={Admin}/>
-      <Route path = "/logout" component ={Logout}/>
-    </Switch>
+    <div className="bg-secondary">
+      <div className="container">
+        <div className="col-sm-8 col-sm-offset-0 mt-5">
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route path="/admin" component={Admin} />
+            <Route path="/logout" component={Logout} />
+            <Route path="/register" component={Register} />
+          </Switch>
+        </div>
+      </div>
+    </div>
   );
 }
 

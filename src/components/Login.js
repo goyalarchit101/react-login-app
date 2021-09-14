@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 export default class Login extends Component {
     constructor(props) {
@@ -28,28 +28,29 @@ export default class Login extends Component {
         e.preventDefault();
         const { username, password } = this.state;
         console.log(username, password);
+        const newUserObject = JSON.parse(localStorage.getItem("newUserObject"));
         // login magic
-        if (username === "test" && password === "test") {
-            localStorage.setItem("token" , "dnsdfskjfnsnfsojfsmkofafm")
-            this.setState ({
-                loggedIn : true
+        if (username === newUserObject.username && password === newUserObject.password) {
+            localStorage.setItem("token", "dnsdfskjfnsnfsojfsmkofafm")
+            this.setState({
+                loggedIn: true
             })
         }
-
     }
     render() {
-        if(this.state.loggedIn){
+        if (this.state.loggedIn) {
             return <Redirect to="/admin" />
         }
         return (
             <div>
-                <h1>login app</h1>
-                <form onSubmit={this.submitFrom}>
-                    <input type="text" placeholder="username" name="username" value={this.state.username} onChange={this.onChange} />
+                <h2>Login</h2>
+                <form name="form" onSubmit={this.submitFrom}>
+                    <input type="text" className="form-control" placeholder="username" name="username" value={this.state.username} onChange={this.onChange} />
                     <br />
-                    <input type="password" placeholder="password" name="password" value={this.state.password} onChange={this.onChange} />
+                    <input type="password" className="form-control" placeholder="password" name="password" value={this.state.password} onChange={this.onChange} />
                     <br />
-                    <input type="submit" />
+                    <input type="submit" className="btn btn-primary" />
+                    <Link to="/register" className="btn btn-link">Register </Link>
                     <br />
                 </form>
             </div>
