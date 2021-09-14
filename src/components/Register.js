@@ -50,6 +50,7 @@ export default class Register extends Component {
                     <input type="password" className="form-control" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange} />
                     <br />
                     <input type="submit" className="btn btn-primary" />
+                    <Link to="/" className="btn btn-link">Already have an account (login) </Link>
                     <br />
                 </form>
             </div>

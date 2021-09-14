@@ -30,7 +30,7 @@ export default class Login extends Component {
         console.log(username, password);
         const newUserObject = JSON.parse(localStorage.getItem("newUserObject"));
         // login magic
-        if (username === newUserObject.username && password === newUserObject.password) {
+        if (newUserObject && username === newUserObject.username && password === newUserObject.password) {
             localStorage.setItem("token", "dnsdfskjfnsnfsojfsmkofafm")
             this.setState({
                 loggedIn: true
