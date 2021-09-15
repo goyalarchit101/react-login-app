@@ -35,7 +35,12 @@ export default class Photos extends Component {
                     data ?
                         <div>
                             {data.map(data => {
-                                return <img src={data.url} alt="image"></img>;
+                                return ([
+                                    <h1>ID:{data.id}</h1>,
+                                    <h1>Album ID: {data.albumId}</h1>,
+                                    <h1>Title: {data.title}</h1>,
+                                    <img src={data.url} alt="image"></img>,
+                                ])
                             })}
                         </div> :
                         <p>
