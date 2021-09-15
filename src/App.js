@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import { Route, Switch , Link } from 'react-router-dom';
+import { Route, Switch, Link } from 'react-router-dom';
 import Admin from "../src/components/Admin";
 import Login from "../src/components/Login";
 import Logout from "../src/components/Logout";
 import Register from "../src/components/Register";
+import Photos from "../src/components/Photos";
+import Posts from "../src/components/Posts";
+import Navbar from "../src/components/navbar";
 
 function App() {
   return (
@@ -13,9 +16,16 @@ function App() {
         <div className="col-sm-8 col-sm-offset-0 mt-5">
           <Switch>
             <Route exact path="/" component={Login} />
-            <Route path="/admin" component={Admin} />
             <Route path="/logout" component={Logout} />
             <Route path="/register" component={Register} />
+
+            <div>
+              <Navbar/>
+              <Route path="/photos" component={Photos} />
+              <Route path="/posts" component={Posts} />
+              <Route path="/admin" component={Admin} />
+            </div>
+
           </Switch>
         </div>
       </div>
@@ -23,11 +33,11 @@ function App() {
   );
 }
 
-const A = () =>{
+const A = () => {
   return (
     <div>
       <h1>this one is A component</h1>
-      <Link to ="/b">B component</Link>
+      <Link to="/b">B component</Link>
     </div>
   )
 }
@@ -54,7 +64,7 @@ const B = () => {
   )
 }
 
-const C = () =>{
+const C = () => {
   return (
     <div>
       <h1>this one is C component</h1>

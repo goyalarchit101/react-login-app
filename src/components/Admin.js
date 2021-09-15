@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, Link, Switch, Route } from 'react-router-dom';
+
+
 
 export default class Admin extends Component {
     constructor(props) {
@@ -14,14 +16,13 @@ export default class Admin extends Component {
         }
     }
     render() {
-        if(!this.state.loggedIn){
+        if (!this.state.loggedIn) {
             return <Redirect to="/" />
         }
         return (
-
             <div>
                 <h1>this is the admin page only authorised people can access it.</h1>
-                <Link to="/logout">Logout</Link>
+                {/* <Link to="/logout">Logout</Link> */}
             </div>
         )
     }
