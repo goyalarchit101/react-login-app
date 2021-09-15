@@ -35,7 +35,7 @@ export default class Photos extends Component {
                     data ?
                         <div>
                             {data.map(data => {
-                                return <img src="{data.url}" alt="image"></img>;
+                                return <img src={data.url} alt="image"></img>;
                             })}
                         </div> :
                         <p>
